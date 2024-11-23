@@ -59,7 +59,7 @@ const NavBar = () => {
                         open={mobileOpen}
                         className={classes.drawerBackground}
                         classes={{ paper: classes.drawerPaper }}
-                        ModalProps={{ keepMounted = true }}
+                        ModalProps={{ keepMounted: true }}
                     >
                         <Sidebar setMobileOpen={setMobileOpen} />
                     </Drawer>
