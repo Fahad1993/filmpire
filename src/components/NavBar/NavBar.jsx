@@ -50,7 +50,6 @@ const NavBar = () => {
                     </div>
                 </Toolbar>
             </AppBar>
-<<<<<<< HEAD
             <nav>
                 <Drawer
                     variant={isMobile ? "temporary" : "permanent"}
@@ -61,28 +60,6 @@ const NavBar = () => {
                 >
                     <Sidebar setMobileOpen={setMobileOpen} />
                 </Drawer>
-=======
-            <nav className={classes.drawer} >
-                {isMobile ? (
-                    <Drawer
-                        variant="temporary"
-                        anchor='right'
-                        open={mobileOpen}
-                        className={classes.drawerBackground}
-                        classes={{ paper: classes.drawerPaper }}
-                        ModalProps={{ keepMounted: true }}
-                    >
-                        <Sidebar setMobileOpen={setMobileOpen} />
-                    </Drawer>
-                ) : (
-                    <Drawer>
-
-                    </Drawer>
-
-                )}
-
-
->>>>>>> d75b43d5d43bf17cb432abe4b482794f0386855e
             </nav>
         </>
     );
