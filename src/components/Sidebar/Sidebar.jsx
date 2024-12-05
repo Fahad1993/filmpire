@@ -1,23 +1,73 @@
-import React, { useEffect } from 'react'
-import { Divider, List, ListItem, ListItemText, ListSubheader, ListItemIcon, Box, CircularProgress } from '@mui/material';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTheme } from '@mui/styles';
+import { useTheme } from '@mui/material/styles';
+import { Image } from './styles';
+import { Divider, ListItem, List, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 
+const categories = [
+    { label: 'Popular', value: 'popular' },
+    { label: 'Top Rated', value: 'top_rated' },
+    { label: 'Upcoming', value: 'upcoming' },
+];
+const demoCategories = [
+    { label: 'Comedy', value: 'comedy' },
+    { label: 'Action', value: 'action' },
+    { label: 'Horror', value: 'horror' },
+    { label: 'Drama', value: 'drama' },
+    { label: 'Mystery', value: 'aystery' },
+    { label: 'Crime', value: 'crime' },
+    { label: 'Animation', value: 'animation' },
+    { label: 'Documentary', value: 'documentary' },
+];
 
-
+const redLogo = 'https://fontmeme.com/permalink/210930/8531c658a743debe1e1aa1a2fc82006e.png';
+const blueLogo = 'https://fontmeme.com/permalink/210930/6854ae5c7f76597cf8680e48a2c8a50a.png';
 
 const Sidebar = ({ setMobileOpen }) => {
     const theme = useTheme();
-    //const [MobileOpen, setMobileOpen] = useState(false);
 
     return (
         <>
-            <Link to="/" style={{ display: "flex", justifyContent: "center", padding: "10% 0" }} >
-                <img src={`https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg`} alt="Filmpire Logo"
-        
-        
-        <>
-                    )
-}
+            <Link
+                to="/"
+                style={{ display: "flex", justifyContent: "center", padding: "10% 0" }}
+                onClick={() => setMobileOpen(false)}
+            >
+                <Image src={theme.palette.mode === 'light' ? redLogo : blueLogo} alt="Filmpire logo" />
+            </Link>
+            <Divider />
+            <List>
+                <ListSubheader>Categories</ListSubheader>
+                {categories.map(({ label, value }) => (
+                    <Link key={value} className="links" to="/">
+                        <ListItem onClick={() => { }} button>
+                            <ListItemIcon>
+                                <img src={redLogo} className="genreImages" height={30} />
+                            </ListItemIcon>
+                            <ListItemText primary={label} />
+                        </ListItem>
+                    </Link>
+                ))}
 
-                    export default Sidebar
+            </List>
+            <Divider />
+            <List>
+                <ListSubheader>Genres</ListSubheader>
+                {demoCategories.map(({ label, value }) => (
+                    <Link key={value} className="links" to="/">
+                        <ListItem onClick={() => { }} button>
+                            <ListItemIcon>
+                                <img src={redLogo} className="genreImages" height={30} />
+                            </ListItemIcon>
+                            <ListItemText primary={label} />
+                        </ListItem>
+                    </Link>
+                ))}
+
+            </List>
+
+        </>
+    );
+};
+
+export default Sidebar;

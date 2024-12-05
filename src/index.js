@@ -8,15 +8,21 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { Provider } from 'react-redux';
+import { store } from "./app/store";
+
 
 const theme = createTheme({});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ThemeProvider theme={theme}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+  <Provider store={store}>
 
-  </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+
+    </ThemeProvider>
+  </Provider>
 );
