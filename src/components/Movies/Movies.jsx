@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useMediaQuery, Box, circularProgress, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useGetMoviesQuery } from '../../services/TMDB';
+import { MovieList } from '..';
 
 
 
@@ -9,9 +10,10 @@ import { useGetMoviesQuery } from '../../services/TMDB';
 const Movies = () => {
     const { data } = useGetMoviesQuery();
 
-    console.log(data);
     return (
-        <div>Movies</div>
+        <div>
+            <MovieList movies={data} />
+        </div>
     )
 }
 
